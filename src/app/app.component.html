@@ -1,0 +1,248 @@
+<!-- Navigation -->
+<nav class="navbar" [@fadeIn]>
+  <div class="nav-container">
+    <div class="logo">
+      <h2>Abraj Al Khaleej</h2>
+      <span class="tagline">شركة مقاولات</span>
+    </div>
+    <ul class="nav-menu">
+      <li><a (click)="scrollToSection('home')">Home</a></li>
+      <li><a (click)="scrollToSection('about')">About</a></li>
+      <li><a (click)="scrollToSection('services')">Services</a></li>
+      <li><a (click)="scrollToSection('projects')">Projects</a></li>
+      <li><a (click)="scrollToSection('vision2030')">Vision 2030</a></li>
+      <li><a (click)="scrollToSection('contact')">Contact</a></li>
+    </ul>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero" [@fadeIn]>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-title" [@slideInLeft]>
+      Building the Future Together
+      <span class="arabic-subtitle">بناء المستقبل معاً</span>
+    </h1>
+    <p class="hero-description" [@slideInRight]>
+      Leading construction company committed to excellence and innovation in Saudi Arabia
+    </p>
+    <div class="hero-buttons" [@fadeIn]>
+      <button class="btn btn-primary" (click)="scrollToSection('projects')">Our Projects</button>
+      <button class="btn btn-secondary" (click)="scrollToSection('contact')">Get in Touch</button>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <span></span>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about">
+  <div class="container">
+    <div class="section-header" [@fadeIn]>
+      <h2>About Us</h2>
+      <p class="section-subtitle">Excellence in Construction Since Day One</p>
+    </div>
+    <div class="about-content">
+      <div class="about-text" [@slideInLeft]>
+        <h3>Our Story</h3>
+        <p>
+          Abraj Al Khaleej is a premier construction company dedicated to building the future of Saudi Arabia. 
+          With a commitment to quality, innovation, and excellence, we have been at the forefront of the 
+          construction industry, delivering world-class projects that shape the Kingdom's landscape.
+        </p>
+        <p>
+          Our team of experienced professionals brings together decades of expertise in construction management, 
+          engineering, and project delivery. We pride ourselves on our ability to execute complex projects 
+          while maintaining the highest standards of safety and quality.
+        </p>
+        <div class="stats">
+          <div class="stat-item">
+            <h4>500+</h4>
+            <p>Projects Completed</p>
+          </div>
+          <div class="stat-item">
+            <h4>15+</h4>
+            <p>Years Experience</p>
+          </div>
+          <div class="stat-item">
+            <h4>200+</h4>
+            <p>Expert Team</p>
+          </div>
+        </div>
+      </div>
+      <div class="about-image" [@slideInRight]>
+        <div class="image-placeholder">
+          <div class="construction-icon">🏗️</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="services">
+  <div class="container">
+    <div class="section-header" [@fadeIn]>
+      <h2>Our Services</h2>
+      <p class="section-subtitle">Comprehensive Construction Solutions</p>
+    </div>
+    <div class="services-grid" [@stagger]>
+      <div class="service-card" *ngFor="let service of services" [@fadeIn]>
+        <div class="service-icon">{{ service.icon }}</div>
+        <h3>{{ service.title }}</h3>
+        <p>{{ service.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="projects">
+  <div class="container">
+    <div class="section-header" [@fadeIn]>
+      <h2>Our Projects</h2>
+      <p class="section-subtitle">Showcasing Excellence in Construction</p>
+    </div>
+    <div class="projects-grid" [@stagger]>
+      <div class="project-card" *ngFor="let project of projects" [@fadeIn]>
+        <div class="project-image">
+          <img [src]="project.image" [alt]="project.name">
+          <div class="project-overlay">
+            <h3>{{ project.name }}</h3>
+            <p>{{ project.category }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Vision 2030 Section -->
+<section id="vision2030" class="vision2030">
+  <div class="container">
+    <div class="vision-content">
+      <div class="vision-text" [@slideInLeft]>
+        <div class="vision-logo">
+          <h2>Saudi Vision 2030</h2>
+          <div class="vision-badge">2030</div>
+        </div>
+        <h3>Building Towards Saudi Arabia's Future</h3>
+        <p>
+          Abraj Al Khaleej is proud to contribute to Saudi Arabia's Vision 2030, a strategic framework 
+          to reduce Saudi Arabia's dependence on oil, diversify its economy, and develop public service 
+          sectors such as health, education, infrastructure, recreation, and tourism.
+        </p>
+        <p>
+          Our construction projects align with Vision 2030's goals of economic diversification, 
+          infrastructure development, and enhancing the quality of life for all citizens. We are 
+          committed to sustainable building practices and innovative solutions that support the 
+          Kingdom's ambitious transformation.
+        </p>
+        <div class="vision-goals">
+          <div class="goal-item" *ngFor="let goal of vision2030Goals">
+            <span class="goal-icon">✓</span>
+            <span>{{ goal }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="vision-image" [@slideInRight]>
+        <div class="vision-card">
+          <div class="vision-icon">🇸🇦</div>
+          <h4>Vision 2030</h4>
+          <p>Building a vibrant society, thriving economy, and ambitious nation</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="section-header" [@fadeIn]>
+      <h2>Get In Touch</h2>
+      <p class="section-subtitle">Let's Build Something Great Together</p>
+    </div>
+    <div class="contact-content">
+      <div class="contact-info" [@slideInLeft]>
+        <div class="info-item">
+          <div class="info-icon">📍</div>
+          <div>
+            <h4>Address</h4>
+            <p>Riyadh, Saudi Arabia</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">📞</div>
+          <div>
+            <h4>Phone</h4>
+            <p>+966 XX XXX XXXX</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">✉️</div>
+          <div>
+            <h4>Email</h4>
+            <p>info&#64;abrajalkhaleej.com</p>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form" [@slideInRight]>
+        <form>
+          <div class="form-group">
+            <input type="text" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Your Email" required>
+          </div>
+          <div class="form-group">
+            <input type="tel" placeholder="Phone Number">
+          </div>
+          <div class="form-group">
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Abraj Al Khaleej</h3>
+        <p>Building the Future Together</p>
+        <p class="arabic">شركة مقاولات</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a (click)="scrollToSection('about')">About Us</a></li>
+          <li><a (click)="scrollToSection('services')">Services</a></li>
+          <li><a (click)="scrollToSection('projects')">Projects</a></li>
+          <li><a (click)="scrollToSection('vision2030')">Vision 2030</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p>Riyadh, Saudi Arabia</p>
+        <p>+966 XX XXX XXXX</p>
+        <p>info&#64;abrajalkhaleej.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Abraj Al Khaleej. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
