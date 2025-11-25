@@ -151,20 +151,14 @@
       </div>
       <div class="vision-image" [@slideInRight]>
         <div class="vision-image-wrapper">
-          <!-- <img src="assets/images/2030.jpeg" alt="Vision 2030" class="vision-2030-image" (error)="$event.target.style.display='none'; $event.target.nextElementSibling.style.display='flex';"> -->
-          
           <img 
+          height="100%"
+          width="390px"
             src="assets/images/2030.jpeg" 
             alt="Vision 2030"
             class="vision-2030-image"
             (error)="onImageError($event)"
           >
-          
-          <div class="vision-card" style="display: none;">
-            <div class="vision-icon">🇸🇦</div>
-            <h4>{{ t.vision2030.cardTitle }}</h4>
-            <p>{{ t.vision2030.cardText }}</p>
-          </div>
         </div>
       </div>
     </div>
