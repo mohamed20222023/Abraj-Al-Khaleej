@@ -6,17 +6,23 @@
       <span class="tagline">شركة مقاولات</span>
     </div>
     <ul class="nav-menu">
-      <li><a (click)="scrollToSection('home')">Home</a></li>
-      <li><a (click)="scrollToSection('about')">About</a></li>
-      <li><a (click)="scrollToSection('services')">Services</a></li>
-      <li><a (click)="scrollToSection('projects')">Projects</a></li>
-      <li><a (click)="scrollToSection('vision2030')">Vision 2030</a></li>
-      <li><a (click)="scrollToSection('contact')">Contact</a></li>
+      <li><a (click)="scrollToSection('home')">{{ t.nav.home }}</a></li>
+      <li><a (click)="scrollToSection('about')">{{ t.nav.about }}</a></li>
+      <li><a (click)="scrollToSection('services')">{{ t.nav.services }}</a></li>
+      <li><a (click)="scrollToSection('projects')">{{ t.nav.projects }}</a></li>
+      <li><a (click)="scrollToSection('vision2030')">{{ t.nav.vision2030 }}</a></li>
+      <li><a (click)="scrollToSection('contact')">{{ t.nav.contact }}</a></li>
     </ul>
-    <div class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
+    <div class="nav-actions">
+      <button class="lang-toggle" (click)="toggleLanguage()" [attr.aria-label]="currentLanguage === 'ar' ? 'Switch to English' : 'التبديل إلى العربية'">
+        <span *ngIf="currentLanguage === 'ar'">EN</span>
+        <span *ngIf="currentLanguage === 'en'">عربي</span>
+      </button>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
   </div>
 </nav>
@@ -26,15 +32,15 @@
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1 class="hero-title" [@slideInLeft]>
-      Building the Future Together
-      <span class="arabic-subtitle">بناء المستقبل معاً</span>
+      {{ t.hero.title }}
+      <span class="arabic-subtitle">{{ t.hero.subtitle }}</span>
     </h1>
     <p class="hero-description" [@slideInRight]>
-      Leading construction company committed to excellence and innovation in Saudi Arabia
+      {{ t.hero.description }}
     </p>
     <div class="hero-buttons" [@fadeIn]>
-      <button class="btn btn-primary" (click)="scrollToSection('projects')">Our Projects</button>
-      <button class="btn btn-secondary" (click)="scrollToSection('contact')">Get in Touch</button>
+      <button class="btn btn-primary" (click)="scrollToSection('projects')">{{ t.hero.btnProjects }}</button>
+      <button class="btn btn-secondary" (click)="scrollToSection('contact')">{{ t.hero.btnContact }}</button>
     </div>
   </div>
   <div class="scroll-indicator">
@@ -46,34 +52,30 @@
 <section id="about" class="about">
   <div class="container">
     <div class="section-header" [@fadeIn]>
-      <h2>About Us</h2>
-      <p class="section-subtitle">Excellence in Construction Since Day One</p>
+      <h2>{{ t.about.title }}</h2>
+      <p class="section-subtitle">{{ t.about.subtitle }}</p>
     </div>
     <div class="about-content">
       <div class="about-text" [@slideInLeft]>
-        <h3>Our Story</h3>
+        <h3>{{ t.about.story }}</h3>
         <p>
-          Abraj Al Khaleej is a premier construction company dedicated to building the future of Saudi Arabia. 
-          With a commitment to quality, innovation, and excellence, we have been at the forefront of the 
-          construction industry, delivering world-class projects that shape the Kingdom's landscape.
+          {{ t.about.storyText1 }}
         </p>
         <p>
-          Our team of experienced professionals brings together decades of expertise in construction management, 
-          engineering, and project delivery. We pride ourselves on our ability to execute complex projects 
-          while maintaining the highest standards of safety and quality.
+          {{ t.about.storyText2 }}
         </p>
         <div class="stats">
           <div class="stat-item">
             <h4>500+</h4>
-            <p>Projects Completed</p>
+            <p>{{ t.about.stats.projects }}</p>
           </div>
           <div class="stat-item">
             <h4>15+</h4>
-            <p>Years Experience</p>
+            <p>{{ t.about.stats.years }}</p>
           </div>
           <div class="stat-item">
             <h4>200+</h4>
-            <p>Expert Team</p>
+            <p>{{ t.about.stats.team }}</p>
           </div>
         </div>
       </div>
@@ -90,8 +92,8 @@
 <section id="services" class="services">
   <div class="container">
     <div class="section-header" [@fadeIn]>
-      <h2>Our Services</h2>
-      <p class="section-subtitle">Comprehensive Construction Solutions</p>
+      <h2>{{ t.services.title }}</h2>
+      <p class="section-subtitle">{{ t.services.subtitle }}</p>
     </div>
     <div class="services-grid" [@stagger]>
       <div class="service-card" *ngFor="let service of services" [@fadeIn]>
@@ -107,8 +109,8 @@
 <section id="projects" class="projects">
   <div class="container">
     <div class="section-header" [@fadeIn]>
-      <h2>Our Projects</h2>
-      <p class="section-subtitle">Showcasing Excellence in Construction</p>
+      <h2>{{ t.projects.title }}</h2>
+      <p class="section-subtitle">{{ t.projects.subtitle }}</p>
     </div>
     <div class="projects-grid" [@stagger]>
       <div class="project-card" *ngFor="let project of projects" [@fadeIn]>
@@ -130,20 +132,15 @@
     <div class="vision-content">
       <div class="vision-text" [@slideInLeft]>
         <div class="vision-logo">
-          <h2>Saudi Vision 2030</h2>
+          <h2>{{ t.vision2030.title }}</h2>
           <div class="vision-badge">2030</div>
         </div>
-        <h3>Building Towards Saudi Arabia's Future</h3>
+        <h3>{{ t.vision2030.subtitle }}</h3>
         <p>
-          Abraj Al Khaleej is proud to contribute to Saudi Arabia's Vision 2030, a strategic framework 
-          to reduce Saudi Arabia's dependence on oil, diversify its economy, and develop public service 
-          sectors such as health, education, infrastructure, recreation, and tourism.
+          {{ t.vision2030.text1 }}
         </p>
         <p>
-          Our construction projects align with Vision 2030's goals of economic diversification, 
-          infrastructure development, and enhancing the quality of life for all citizens. We are 
-          committed to sustainable building practices and innovative solutions that support the 
-          Kingdom's ambitious transformation.
+          {{ t.vision2030.text2 }}
         </p>
         <div class="vision-goals">
           <div class="goal-item" *ngFor="let goal of vision2030Goals">
@@ -153,10 +150,21 @@
         </div>
       </div>
       <div class="vision-image" [@slideInRight]>
-        <div class="vision-card">
-          <div class="vision-icon">🇸🇦</div>
-          <h4>Vision 2030</h4>
-          <p>Building a vibrant society, thriving economy, and ambitious nation</p>
+        <div class="vision-image-wrapper">
+          <!-- <img src="assets/images/2030.jpeg" alt="Vision 2030" class="vision-2030-image" (error)="$event.target.style.display='none'; $event.target.nextElementSibling.style.display='flex';"> -->
+          
+          <img 
+            src="assets/images/2030.jpeg" 
+            alt="Vision 2030"
+            class="vision-2030-image"
+            (error)="onImageError($event)"
+          >
+          
+          <div class="vision-card" style="display: none;">
+            <div class="vision-icon">🇸🇦</div>
+            <h4>{{ t.vision2030.cardTitle }}</h4>
+            <p>{{ t.vision2030.cardText }}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -167,48 +175,48 @@
 <section id="contact" class="contact">
   <div class="container">
     <div class="section-header" [@fadeIn]>
-      <h2>Get In Touch</h2>
-      <p class="section-subtitle">Let's Build Something Great Together</p>
+      <h2>{{ t.contact.title }}</h2>
+      <p class="section-subtitle">{{ t.contact.subtitle }}</p>
     </div>
     <div class="contact-content">
       <div class="contact-info" [@slideInLeft]>
         <div class="info-item">
           <div class="info-icon">📍</div>
           <div>
-            <h4>Address</h4>
-            <p>Riyadh, Saudi Arabia</p>
+            <h4>{{ t.contact.address }}</h4>
+            <p>{{ t.contact.addressValue }}</p>
           </div>
         </div>
         <div class="info-item">
           <div class="info-icon">📞</div>
           <div>
-            <h4>Phone</h4>
+            <h4>{{ t.contact.phone }}</h4>
             <p>+966 XX XXX XXXX</p>
           </div>
         </div>
         <div class="info-item">
           <div class="info-icon">✉️</div>
           <div>
-            <h4>Email</h4>
-            <p>info&#64;abrajalkhaleej.com</p>
+            <h4>{{ t.contact.email }}</h4>
+            <p>info&#64;abraj-kh.com</p>
           </div>
         </div>
       </div>
       <div class="contact-form" [@slideInRight]>
         <form>
           <div class="form-group">
-            <input type="text" placeholder="Your Name" required>
+            <input type="text" [placeholder]="t.contact.form.name" required>
           </div>
           <div class="form-group">
-            <input type="email" placeholder="Your Email" required>
+            <input type="email" [placeholder]="t.contact.form.email" required>
           </div>
           <div class="form-group">
-            <input type="tel" placeholder="Phone Number">
+            <input type="tel" [placeholder]="t.contact.form.phone">
           </div>
           <div class="form-group">
-            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <textarea [placeholder]="t.contact.form.message" rows="5" required></textarea>
           </div>
-          <button type="submit" class="btn btn-primary">Send Message</button>
+          <button type="submit" class="btn btn-primary">{{ t.contact.form.send }}</button>
         </form>
       </div>
     </div>
@@ -221,27 +229,27 @@
     <div class="footer-content">
       <div class="footer-section">
         <h3>Abraj Al Khaleej</h3>
-        <p>Building the Future Together</p>
+        <p>{{ t.footer.tagline }}</p>
         <p class="arabic">شركة مقاولات</p>
       </div>
       <div class="footer-section">
-        <h4>Quick Links</h4>
+        <h4>{{ t.footer.quickLinks }}</h4>
         <ul>
-          <li><a (click)="scrollToSection('about')">About Us</a></li>
-          <li><a (click)="scrollToSection('services')">Services</a></li>
-          <li><a (click)="scrollToSection('projects')">Projects</a></li>
-          <li><a (click)="scrollToSection('vision2030')">Vision 2030</a></li>
+          <li><a (click)="scrollToSection('about')">{{ t.nav.about }}</a></li>
+          <li><a (click)="scrollToSection('services')">{{ t.nav.services }}</a></li>
+          <li><a (click)="scrollToSection('projects')">{{ t.nav.projects }}</a></li>
+          <li><a (click)="scrollToSection('vision2030')">{{ t.nav.vision2030 }}</a></li>
         </ul>
       </div>
       <div class="footer-section">
-        <h4>Contact</h4>
-        <p>Riyadh, Saudi Arabia</p>
+        <h4>{{ t.footer.contact }}</h4>
+        <p>{{ t.contact.addressValue }}</p>
         <p>+966 XX XXX XXXX</p>
-        <p>info&#64;abrajalkhaleej.com</p>
+        <p>info&#64;abraj-kh.com</p>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2024 Abraj Al Khaleej. All rights reserved.</p>
+      <p>&copy; 2024 Abraj Al Khaleej. {{ t.footer.rights }}.</p>
     </div>
   </div>
 </footer>
